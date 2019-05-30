@@ -1,0 +1,2 @@
+name=Template Board
+version=0.0.1

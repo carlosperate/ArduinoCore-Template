@@ -1,0 +1,3 @@
+template_board.name=Template Board
+
+template_board.build.core=template

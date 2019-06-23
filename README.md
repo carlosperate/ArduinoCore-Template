@@ -13,3 +13,6 @@ This is a template to create an Arduino Hardware Core.
 
 - `cores`: This folder contains the Arduino Core source code (the bits that
   implement the Arduino libraries).
+- `custom-tools`: This folder and its contents are **not necessary** for the
+  Arduino Core. They contain a hello world program, compiled to a wide range
+  of platforms to show how to integrate custom tools the your Arduino core.

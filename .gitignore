@@ -1,7 +1,9 @@
 ####################
 # Project Specific #
 ####################
-# Nothing yet
+# Custom Tool
+/custom-tool/BUILD/*
+/custom-tool/zip/*
 
 ###########
 # Arduino #

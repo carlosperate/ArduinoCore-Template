@@ -1,3 +1,3 @@
-template_board.name=Template Board
+template_board_one.name=Arduino Core Template Board One
 
 template_board.build.core=template

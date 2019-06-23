@@ -2,10 +2,13 @@
 
 This is a template to create an Arduino Hardware Core.
 
+
 ## Information used to populate project files
 
 - Vendor name: Your Name
-- Board name: Arduino Template Board
+- Core full name: Arduino Core Template
+- Core short name: template
+- Board 1 name: Arduino Core Template Board One
 - Version: 0.0.1
 
 
@@ -16,3 +19,8 @@ This is a template to create an Arduino Hardware Core.
 - `custom-tools`: This folder and its contents are **not necessary** for the
   Arduino Core. They contain a hello world program, compiled to a wide range
   of platforms to show how to integrate custom tools the your Arduino core.
+
+
+## Arduino IDE minimum version
+
+- 1.6.4

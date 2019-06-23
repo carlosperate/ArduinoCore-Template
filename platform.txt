@@ -1,2 +1,2 @@
-name=Template Board
+name=Arduino Core Template Boards
 version=0.0.1

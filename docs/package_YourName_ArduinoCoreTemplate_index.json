@@ -1,0 +1,111 @@
+{
+  "packages": [
+    {
+      "name": "ArduinoCoreTemplate",
+      "maintainer": "Your Name",
+      "websiteURL": "https://carlosperate.github.io/ArduinoCore-Template",
+      "email": "your@email.com",
+      "help": {
+        "online": "https://carlosperate.github.io/ArduinoCore-Template/docs"
+      },
+      "platforms": [
+        {
+          "name": "Arduino Core Template",
+          "architecture": "template-arch",
+          "version": "0.0.1",
+          "category": "Contributed",
+          "url": "https://www.dropbox.com/s/1esjk0bpohcv34t/ArduinoCore-Template.zip?dl=1",
+          "archiveFileName": "ArduinoCore-Template.zip",
+          "checksum": "SHA-256:86070154671566f58014a29d13a80bc330491b237e7c79eb8e46e45dcd70b4b2",
+          "size": "16200652",
+          "boards": [
+            {
+              "name": "Arduino Template Board"
+            }
+          ],
+          "toolsDependencies": [
+            {
+              "packager": "ArduinoCoreTemplate",
+              "name": "custom-tool",
+              "version": "1.0.0"
+            },
+            {
+              "packager": "arduino",
+              "name": "arm-none-eabi-gcc",
+              "version": "4.8.3-2014q1"
+            },
+            {
+              "packager": "arduino",
+              "name": "openocd",
+              "version": "0.10.0-arduino9"
+            }
+          ]
+        }
+      ],
+      "tools": [
+        {
+          "name": "custom-tool",
+          "version": "1.0.0",
+          "systems": [
+            {
+              "host": "i686-mingw32",
+              "url": "https://www.dropbox.com/s/a9temxhld7zg7ii/hello-windows-32.zip?dl=1",
+              "archiveFileName": "hello-windows-32.zip",
+              "checksum": "SHA-256:d23ef88403d997a3263dcaec080ae4f8ba1d85ebec8cc22bee4e0c51fa410994",
+              "size": "1008443"
+            },
+            {
+              "host": "x86_64-mingw32",
+              "url": "https://www.dropbox.com/s/tjh0nali5jlt7b1/hello-windows-64.zip?dl=1",
+              "archiveFileName": "hello-windows-64.zip",
+              "checksum": "SHA-256:39fd1536ba9f3cf3574e855082d1094b394d83cff1fa690f6b31484e774ac8dd",
+              "size": "1046824"
+            },
+            {
+              "host": "i386-apple-darwin11",
+              "url": "https://www.dropbox.com/s/n2meohgwa33ncr1/custom-tool-mac-32.zip?dl=1",
+              "archiveFileName": "custom-tool-mac-32.zip",
+              "checksum": "SHA-256:ff4f199389f5fbabcc1a3c840e53e0257798e1753711cb6200f5b4dbf155e75f",
+              "size": "1061263"
+            },
+            {
+              "host": "x86_64-apple-darwin",
+              "url": "https://www.dropbox.com/s/xugxct2fjepb5z3/custom-tool-mac-64.zip?dl=1",
+              "archiveFileName": "custom-tool-mac-64.zip",
+              "checksum": "SHA-256:adfb05d331deacd482954fecfc8cb150e0be16c22f43e94d0f0a75f47e091008",
+              "size": "1068763"
+            },
+            {
+              "host": "i686-pc-linux-gnu",
+              "url": "https://www.dropbox.com/s/abdkvil54uugkh9/hello-linux-32.zip?dl=1",
+              "archiveFileName": "hello-linux-32.zip",
+              "checksum": "SHA-256:d527e214c7c6a44d5a3ed0963f2b351b8698b7a9ecc2446b94a191cb3bc9ddd1",
+              "size": "993879"
+            },
+            {
+              "host": "x86_64-pc-linux-gnu",
+              "url": "https://www.dropbox.com/s/zt5sy3cgfhv5z3u/hello-linux-64.zip?dl=1",
+              "archiveFileName": "hello-linux-64.zip",
+              "checksum": "SHA-256:6e4fab3624dcaef42b851123f9856378079c7231fea4259a5dd2db94b723b9ce",
+              "size": "1023620"
+            },
+            {
+              "host": "arm-linux-gnueabihf",
+              "url": "https://www.dropbox.com/s/hym6nxli3o2mchi/hello-linux-armv6.zip?dl=1",
+              "archiveFileName": "hello-linux-armv6.zip",
+              "checksum": "SHA-256:858adfcc2ec69ffd5f22f4df67b776be64f6433a84058fb11a806c487b06fad4",
+              "size": "960110"
+            },
+            {
+              "host": "aarch64-linux-gnu",
+              "url": "https://www.dropbox.com/s/hwityiyosiapuxv/hello-linux-armv8.zip?dl=1",
+              "archiveFileName": "hello-linux-armv8.zip",
+              "checksum": "SHA-256:7b68579a10800afa8ff7102b12e083c0e8bea08e6890e48aa84c9f5d23442901",
+              "size": "971955"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

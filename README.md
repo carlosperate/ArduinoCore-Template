@@ -2,6 +2,8 @@
 
 This is a template to create an Arduino Hardware Core.
 
+WIP - Explain what is an Arduino Core.
+
 
 ## Information used to populate project files
 
@@ -9,6 +11,7 @@ This is a template to create an Arduino Hardware Core.
 - Maintainer: Your Name
 - Core full name: Arduino Core Template
 - Core short name: template
+    - WIP - used in boards.txt
 - Architecture: template-arch
     - This is the processor architecture for the core, e.g. `avr`, `samd`, etc.
 - Board 1 name: Arduino Core Template Board One
@@ -20,11 +23,14 @@ This is a template to create an Arduino Hardware Core.
 - Docs: https://carlosperate.github.io/ArduinoCore-Template/docs
 
 
-
 ## Directory Structure
 
-- `cores`: This folder contains the Arduino Core source code (the bits that
-  implement the Arduino libraries).
+- `cores`: This folder contains the Arduino Core C/C++ source code (the files
+  that implement the Arduino API and libraries).
+- `docs`: This folder is not part of the Arduino Core, but it is used to be able
+  host static files online via [GitHub Pages](https://pages.github.com/). This
+  is needed to provide a JSON file URL to the Arduino IDE, so that the IDE can
+  install the Arduino Core.
 - `custom-tools`: This folder and its contents are **not necessary** for the
   Arduino Core. They contain a hello world program, compiled to a wide range
   of platforms to show how to integrate custom tools the your Arduino core.

@@ -47,8 +47,8 @@ WIP - Explain how new versions are added to the package_index.json file.
 The package_xxx_index.json file has to be available online as a valid text or
 JSON content type URL, so that users can add it to the Arduino IDE.
 To do that the file has been included in the docs folder, so that it can be
-statically served via GitHub pages. The option should be in the repository 
-settings:
+statically served via [GitHub Pages](https://pages.github.com/). The option
+should be in the repository settings:
 
 ![Publishing the docs folder in GH Pages](https://user-images.githubusercontent.com/4189262/58943144-0bc79d00-8777-11e9-8aea-23d93d890dde.png)
 

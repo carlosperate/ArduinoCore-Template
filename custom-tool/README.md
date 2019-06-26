@@ -20,14 +20,14 @@ This program is trivial, and the Go language was chosen because it's very easy
 to cross-compile from a single platform:
 
 ```
-GOOS=windows GOARCH=386           go build -o ./BUILD/hello-windows-32.exe
-GOOS=windows GOARCH=amd64         go build -o ./BUILD/hello-windows-64.exe
-GOOS=linux   GOARCH=386           go build -o ./BUILD/hello-linux-32
-GOOS=linux   GOARCH=amd64         go build -o ./BUILD/hello-linux-64
-GOOS=linux   GOARCH=arm   GOARM=6 go build -o ./BUILD/hello-linux-armv6
-GOOS=linux   GOARCH=arm64         go build -o ./BUILD/hello-linux-armv8
-GOOS=darwin  GOARCH=386           go build -o ./BUILD/hello-mac-32
-GOOS=darwin  GOARCH=amd64         go build -o ./BUILD/hello-mac-64
+GOOS=windows GOARCH=386           go build -o ./BUILD/custom-tool-windows-32/hello.exe
+GOOS=windows GOARCH=amd64         go build -o ./BUILD/custom-tool-windows-64/hello.exe
+GOOS=linux   GOARCH=386           go build -o ./BUILD/custom-tool-linux-32/hello
+GOOS=linux   GOARCH=amd64         go build -o ./BUILD/custom-tool-linux-64/hello
+GOOS=linux   GOARCH=arm   GOARM=6 go build -o ./BUILD/custom-tool-linux-armv6/hello
+GOOS=linux   GOARCH=arm64         go build -o ./BUILD/custom-tool-linux-armv8/hello
+GOOS=darwin  GOARCH=386           go build -o ./BUILD/custom-tool-mac-32/hello
+GOOS=darwin  GOARCH=amd64         go build -o ./BUILD/custom-tool-mac-64/hello
 ```
 
 
@@ -39,14 +39,15 @@ the package_index.json file.
 
 ```
 mkdir zip
-zip ./zip/hello-windows-32.zip  ./BUILD/hello-windows-32.exe && shasum -a 256 ./zip/hello-windows-32.zip  && ls -l ./zip/hello-windows-32.zip
-zip ./zip/hello-windows-64.zip  ./BUILD/hello-windows-64.exe && shasum -a 256 ./zip/hello-windows-64.zip  && ls -l ./zip/hello-windows-64.zip
-zip ./zip/hello-linux-32.zip    ./BUILD/hello-linux-32       && shasum -a 256 ./zip/hello-linux-32.zip    && ls -l ./zip/hello-linux-32.zip
-zip ./zip/hello-linux-64.zip    ./BUILD/hello-linux-64       && shasum -a 256 ./zip/hello-linux-64.zip    && ls -l ./zip/hello-linux-64.zip
-zip ./zip/hello-linux-armv6.zip ./BUILD/hello-linux-armv6    && shasum -a 256 ./zip/hello-linux-armv6.zip && ls -l ./zip/hello-linux-armv6.zip
-zip ./zip/hello-linux-armv8.zip ./BUILD/hello-linux-armv8    && shasum -a 256 ./zip/hello-linux-armv8.zip && ls -l ./zip/hello-linux-armv8.zip
-zip ./zip/hello-mac-32.zip      ./BUILD/hello-mac-32         && shasum -a 256 ./zip/hello-mac-32.zip      && ls -l ./zip/hello-mac-32.zip
-zip ./zip/hello-mac-64.zip      ./BUILD/hello-mac-64         && shasum -a 256 ./zip/hello-mac-64.zip      && ls -l ./zip/hello-mac-64.zip
+cd BUILD/
+zip -r ../zip/custom-tool-windows-32.zip  ./custom-tool-windows-32/  && shasum -a 256 ../zip/custom-tool-windows-32.zip  && ls -l ../zip/custom-tool-windows-32.zip
+zip -r ../zip/custom-tool-windows-64.zip  ./custom-tool-windows-64/  && shasum -a 256 ../zip/custom-tool-windows-64.zip  && ls -l ../zip/custom-tool-windows-64.zip
+zip -r ../zip/custom-tool-linux-32.zip    ./custom-tool-linux-32/    && shasum -a 256 ../zip/custom-tool-linux-32.zip    && ls -l ../zip/custom-tool-linux-32.zip
+zip -r ../zip/custom-tool-linux-64.zip    ./custom-tool-linux-64/    && shasum -a 256 ../zip/custom-tool-linux-64.zip    && ls -l ../zip/custom-tool-linux-64.zip
+zip -r ../zip/custom-tool-linux-armv6.zip ./custom-tool-linux-armv6/ && shasum -a 256 ../zip/custom-tool-linux-armv6.zip && ls -l ../zip/custom-tool-linux-armv6.zip
+zip -r ../zip/custom-tool-linux-armv8.zip ./custom-tool-linux-armv8/ && shasum -a 256 ../zip/custom-tool-linux-armv8.zip && ls -l ../zip/custom-tool-linux-armv8.zip
+zip -r ../zip/custom-tool-mac-32.zip      ./custom-tool-mac-32/      && shasum -a 256 ../zip/custom-tool-mac-32.zip      && ls -l ../zip/custom-tool-mac-32.zip
+zip -r ../zip/custom-tool-mac-64.zip      ./custom-tool-mac-64/      && shasum -a 256 ../zip/custom-tool-mac-64.zip      && ls -l ../zip/custom-tool-mac-64.zip
 ```
 
 

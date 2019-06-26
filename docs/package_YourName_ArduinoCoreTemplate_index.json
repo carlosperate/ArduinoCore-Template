@@ -49,17 +49,17 @@
           "systems": [
             {
               "host": "i686-mingw32",
-              "url": "https://www.dropbox.com/s/a9temxhld7zg7ii/hello-windows-32.zip?dl=1",
-              "archiveFileName": "hello-windows-32.zip",
-              "checksum": "SHA-256:d23ef88403d997a3263dcaec080ae4f8ba1d85ebec8cc22bee4e0c51fa410994",
-              "size": "1008443"
+              "url": "https://www.dropbox.com/s/dorm7hfs6pz4adt/custom-tool-windows-32.zip?dl=1",
+              "archiveFileName": "custom-tool-windows-32.zip",
+              "checksum": "SHA-256:d3908ec813732c5add5c186a5c3c290d5d3892bfa205e9d64ac2614602fc4782",
+              "size": "1008864"
             },
             {
               "host": "x86_64-mingw32",
-              "url": "https://www.dropbox.com/s/tjh0nali5jlt7b1/hello-windows-64.zip?dl=1",
-              "archiveFileName": "hello-windows-64.zip",
-              "checksum": "SHA-256:39fd1536ba9f3cf3574e855082d1094b394d83cff1fa690f6b31484e774ac8dd",
-              "size": "1046824"
+              "url": "https://www.dropbox.com/s/gd9l5iv40kr0yoh/custom-tool-windows-64.zip?dl=1",
+              "archiveFileName": "custom-tool-windows-64.zip",
+              "checksum": "SHA-256:402b2ea18eb72b67f88da698ce54e2f15abe37184c0b259e0ad786c523af2b69",
+              "size": "1047313"
             },
             {
               "host": "i386-apple-darwin11",
@@ -77,31 +77,31 @@
             },
             {
               "host": "i686-pc-linux-gnu",
-              "url": "https://www.dropbox.com/s/abdkvil54uugkh9/hello-linux-32.zip?dl=1",
-              "archiveFileName": "hello-linux-32.zip",
-              "checksum": "SHA-256:d527e214c7c6a44d5a3ed0963f2b351b8698b7a9ecc2446b94a191cb3bc9ddd1",
-              "size": "993879"
+              "url": "https://www.dropbox.com/s/6kjvbe9qx15it5z/custom-tool-linux-32.zip?dl=1",
+              "archiveFileName": "custom-tool-linux-32.zip",
+              "checksum": "SHA-256:f3444d11cea6c35ba353cd28a75fa1be808b1dc93999470592335bb24bf4f068",
+              "size": "994205"
             },
             {
               "host": "x86_64-pc-linux-gnu",
-              "url": "https://www.dropbox.com/s/zt5sy3cgfhv5z3u/hello-linux-64.zip?dl=1",
-              "archiveFileName": "hello-linux-64.zip",
-              "checksum": "SHA-256:6e4fab3624dcaef42b851123f9856378079c7231fea4259a5dd2db94b723b9ce",
-              "size": "1023620"
+              "url": "https://www.dropbox.com/s/n1tcc3j4b98ib6r/custom-tool-linux-64.zip?dl=1",
+              "archiveFileName": "custom-tool-linux-64.zip",
+              "checksum": "SHA-256:23628665fd5788dd5d9025aa344ac967bacf45cf966d4e9809d724e7c8d5ba90",
+              "size": "1023835"
             },
             {
               "host": "arm-linux-gnueabihf",
-              "url": "https://www.dropbox.com/s/hym6nxli3o2mchi/hello-linux-armv6.zip?dl=1",
-              "archiveFileName": "hello-linux-armv6.zip",
-              "checksum": "SHA-256:858adfcc2ec69ffd5f22f4df67b776be64f6433a84058fb11a806c487b06fad4",
-              "size": "960110"
+              "url": "https://www.dropbox.com/s/o65voskh073eysx/custom-tool-linux-armv6.zip?dl=1",
+              "archiveFileName": "custom-tool-linux-armv6.zip",
+              "checksum": "SHA-256:907cdf5f5b978430322e9ae43a14c858bd532fa0c7d58497787e8fddaef306fb",
+              "size": "960711"
             },
             {
               "host": "aarch64-linux-gnu",
-              "url": "https://www.dropbox.com/s/hwityiyosiapuxv/hello-linux-armv8.zip?dl=1",
-              "archiveFileName": "hello-linux-armv8.zip",
-              "checksum": "SHA-256:7b68579a10800afa8ff7102b12e083c0e8bea08e6890e48aa84c9f5d23442901",
-              "size": "971955"
+              "url": "https://www.dropbox.com/s/uf258a6uyuexcxc/custom-tool-linux-armv8.zip?dl=1",
+              "archiveFileName": "custom-tool-linux-armv8.zip",
+              "checksum": "SHA-256:b0203c13e30b47be7cc6d9f98837346fe747bfd60e9d20c03823b17c01d3034a",
+              "size": "972607"
             }
           ]
         }

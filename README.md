@@ -20,6 +20,11 @@ This is a template to create an Arduino Hardware Core.
   Arduino Core. They contain a hello world program, compiled to a wide range
   of platforms to show how to integrate custom tools the your Arduino core.
 
+## Files
+
+- `boards.txt`: Defines the Arduino boards for this core.
+- `platform.txt`: Defines how to use the tooling to build with this core.
+
 
 ## Arduino IDE minimum version
 

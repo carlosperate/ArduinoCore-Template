@@ -45,8 +45,40 @@ WIP - Explain what is an Arduino Core.
   this core. The URL to this files is added by the user to the Arduino IDE
   so that this Arduino Core Template can appear in the Arduino Boards Manager.
   More information can be found in the `docs/README.md` file.
+- `programmers.txt`: WIP.
+- `keywords.txt`: WIP.
+
+
+## Installing
+
+WIP - Explain this process a bit better.
+
+1. Run a static server from the repository:
+  ```
+  pythom -m SimpleHTTPServer
+  ```
+1. Add this URL to the Arduino IDE Settings > Additional Board Manager URLS:
+  ```
+  http://localhost:8000/docs/package_YourName_ArduinoCoreTemplate_index.json
+  ```
+1. Install the ArduinoCoreTemplate Core from the Arduino IDE Boards Manager.
+1. Close the Arduino IDE
+1. Find the Arduino `SKETCHBOOK` directory, which is the Operating System
+  dependent:
+    - Windows: `%USERPROFILE%\Documents\Arduino`
+    - macOS: `~/Documents/Arduino`
+    - Linux: `~/Arduino`
+1. Open the terminal at the `SKETCHBOOK` directory and git clone into a
+  specific subdirectory:
+  ```
+  git clone https://github.com/carlosperate/ArduinoCore-Template.git ArduinoCoreTemplate/template-arch/
+  ```
+1. Reopen the Arduino IDE
 
 
 ## Arduino IDE minimum version
 
-- 1.6.4
+Some of the features used in this template are not available in earlier version
+of the Arduino IDE, so the currently minimum version is:
+
+- 1.6.6

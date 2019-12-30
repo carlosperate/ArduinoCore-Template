@@ -1,0 +1,11 @@
+name: clang-format
+description: Do a dry run of the code formatter to catch any infractions.
+author: Carlos Pereira Atencio
+branding:
+  color: grey
+  icon: italic
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+  - ${{ inputs.args }}

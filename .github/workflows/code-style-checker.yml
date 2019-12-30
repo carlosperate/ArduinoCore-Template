@@ -1,0 +1,25 @@
+name: Code Style Checker
+
+on:
+  push:
+    branches:
+    - master
+    - action
+    - actions
+
+jobs:
+  style-checker:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run local action clang-format
+      uses: ./.github/actions/clang-format
+
+  style-checker-args:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run local action clang-format
+      uses: ./.github/actions/clang-format
+      with:
+        args: -r . --style=Google

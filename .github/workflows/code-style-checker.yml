@@ -22,4 +22,4 @@ jobs:
     - name: Run local action clang-format
       uses: ./.github/actions/clang-format
       with:
-        args: -r .
+        args: -r . --style=Mozilla

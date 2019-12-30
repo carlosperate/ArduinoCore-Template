@@ -31,10 +31,10 @@ jobs:
     - name: Run local action clang-format
       uses: ./.github/actions/clang-format
       with:
-        args: -r .
+        args: -r . --style=Mozilla
 ```
 
-Instead of running the default arguments you can pass your own arguuments to
+Instead of running the default arguments you can pass your own arguments to
 `run-clang-format.py`, see the available options in its documentation:
 https://github.com/Sarcasm/run-clang-format
 
@@ -47,6 +47,10 @@ to use for continuous integration.
 This script has come from https://github.com/Sarcasm/run-clang-format.
 
 This copy is from commit `de6e8ca07d171a7f378d379ff252a00f2905e81d`.
+
+The script has been updated to also take a `--style` flag to be able to select
+the clang-format coding style. The diff with the code change can be found in
+the `run-clang-format.diff` file.
 
 ### `run-clang-format.py` license
 

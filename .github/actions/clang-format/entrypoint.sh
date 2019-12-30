@@ -3,18 +3,14 @@
 set -e
 
 if [ -z $1 ]; then
-    # No arguments passed to the script, run default (set -x prints cmds run)
+    # No arguments passed, run default with run-clang-format.py (set -x prints cmds run)
     set -x
-    for f in $(find . -name '*.h' -or -name '*.c' -or -name '*.cpp' -or -name '*.ino'); do
-        echo "Check format for ${f}"
-        set -x
-        clang-format -style=Google ${f}
-    done
+    python .github/actions/clang-format/run-clang-format.py \
+        --recursive . \
+        --extensions c,h,C,H,cpp,hpp,cc,hh,c++,h++,cxx,hxx,ino \
+        --color always
 else
-    # Pass arguments to clang-format, run default (set -x prints cmds run
-    for f in $(find . -name '*.h' -or -name '*.c' -or -name '*.cpp' -or -name '*.ino'); do
-        echo "Check format for ${f}"
-        set -x
-        clang-format "$@" ${f}
-    done
+    # Pass arguments to run-clang-format (set -x prints cmds run)
+    set -x
+    python .github/actions/clang-format/run-clang-format.py $@
 fi

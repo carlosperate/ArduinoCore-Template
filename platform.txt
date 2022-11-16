@@ -1,2 +1,23 @@
+# Global properties provided by the Arduino IDE
+#
+# {runtime.platform.path}     - the absolute path of the platform folder (i.e. the folder containing boards.txt)
+# {runtime.hardware.path}     - the absolute path of the hardware folder (i.e. the folder containing the current platform folder)
+# {runtime.ide.path}          - the absolute path of the Arduino IDE folder
+# {runtime.ide.version}       - the version number of the Arduino IDE as a number (this uses two digits per version
+#                               number component, and removes the points and leading zeroes, so Arduino IDE 1.8.3
+#                               becomes 01.08.03 which becomes runtime.ide.version=10803).
+# {ide_version}               - Compatibility alias for {runtime.ide.version}
+# {runtime.os}                - the running OS ("linux", "windows", "macosx")
+#
+#
+# {build.path}              - The path to the temporary folder to store build artifacts
+# {build.project_name}      - The project name
+# {build.arch}              - The MCU architecture (avr, sam, etc...)
+
+
 name=Arduino Core Template Boards
 version=0.0.1
+
+
+compiler.path={build.compiler_path}
+compiler.c.cmd=arm-none-eabi-gcc

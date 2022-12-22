@@ -1,3 +1,7 @@
 template_board_one.name=Arduino Core Template Board One
+template_board_one.build.board=TEMPLATE_BOARD_ONE
+template_board_one.build.core=template
 
-template_board.build.core=template
+template_board_two.name=Arduino Core Template Board Two
+template_board_two.build.board=TEMPLATE_BOARD_TWO
+template_board_two.build.core=template

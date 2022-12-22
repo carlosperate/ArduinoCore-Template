@@ -19,9 +19,8 @@
           "checksum": "SHA-256:86070154671566f58014a29d13a80bc330491b237e7c79eb8e46e45dcd70b4b2",
           "size": "16200652",
           "boards": [
-            {
-              "name": "Arduino Template Board"
-            }
+            { "name": "Arduino Template Board One" },
+            { "name": "Arduino Template Board Two" }
           ],
           "toolsDependencies": [
             {
@@ -32,7 +31,7 @@
             {
               "packager": "arduino",
               "name": "arm-none-eabi-gcc",
-              "version": "4.8.3-2014q1"
+              "version": "7-2017q4"
             },
             {
               "packager": "arduino",

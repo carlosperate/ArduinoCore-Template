@@ -44,13 +44,15 @@ WIP - Explain what is an Arduino Core.
 ## Files
 
 - `boards.txt`: Defines the Arduino boards for this core.
-- `platform.txt`: Defines how to use the tooling to build with this core.
+- `platform.txt`: Defines how to use the tooling to build and upload with this
+  core.
 - `package_info.json`: This files is not packaged inside the core, instead it is
   hosted online and contains the information for the Arduino IDE to install
   this core. The URL to this files is added by the user to the Arduino IDE
   so that this Arduino Core Template can appear in the Arduino Boards Manager.
   More information can be found in the `docs/README.md` file.
-- `programmers.txt`: WIP.
+- `programmers.txt`: Would contain definitions to use external programmers, for
+  example to flash a bootloader, which is only required once.
 - `keywords.txt`: WIP.
 
 

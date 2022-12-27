@@ -2,24 +2,16 @@ name: Code Style Checker
 
 on:
   push:
-    branches:
-    - master
-    - action
-    - actions
+    branches: '*'
+  pull_request:
+    branches: '*'
 
 jobs:
   style-checker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Run local action clang-format
-      uses: ./.github/actions/clang-format
-
-  style-checker-args:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Run local action clang-format
       uses: ./.github/actions/clang-format
       with:
-        args: -r . --style=Google
+        args: --recursive . --style=file

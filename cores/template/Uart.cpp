@@ -11,28 +11,16 @@ void Uart::begin(const unsigned long baudrate) {
 void Uart::begin(const unsigned long baudrate, const uint16_t config) {
     uint8_t word_size = 8;
     switch (config & SERIAL_DATA_MASK) {
-        case SERIAL_DATA_5:
-            word_size = 5;
-            break;
-        case SERIAL_DATA_6:
-            word_size = 6;
-            break;
-        case SERIAL_DATA_7:
-            word_size = 7;
-            break;
-        case SERIAL_DATA_8:
-            word_size = 8;
-            break;
+        case SERIAL_DATA_5: word_size = 5; break;
+        case SERIAL_DATA_6: word_size = 6; break;
+        case SERIAL_DATA_7: word_size = 7; break;
+        case SERIAL_DATA_8: word_size = 8; break;
     }
 
     uint8_t stop_bits = 1;
     switch (config & SERIAL_STOP_BIT_MASK) {
-        case SERIAL_STOP_BIT_1:
-            stop_bits = 1;
-            break;
-        case SERIAL_STOP_BIT_2:
-            stop_bits = 2;
-            break;
+        case SERIAL_STOP_BIT_1: stop_bits = 1; break;
+        case SERIAL_STOP_BIT_2: stop_bits = 2; break;
     }
 
     typedef enum {
@@ -42,15 +30,9 @@ void Uart::begin(const unsigned long baudrate, const uint16_t config) {
     } parity_mode_t;
     parity_mode_t parity_mode = ODD;
     switch (config & SERIAL_PARITY_MASK) {
-        case SERIAL_PARITY_EVEN:
-            parity_mode = EVEN;
-            break;
-        case SERIAL_PARITY_ODD:
-            parity_mode = ODD;
-            break;
-        case SERIAL_PARITY_NONE:
-            parity_mode = NONE;
-            break;
+        case SERIAL_PARITY_EVEN: parity_mode = EVEN; break;
+        case SERIAL_PARITY_ODD: parity_mode = ODD; break;
+        case SERIAL_PARITY_NONE: parity_mode = NONE; break;
     }
 }
 

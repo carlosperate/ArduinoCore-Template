@@ -24,7 +24,7 @@ size_t TwoWire::requestFrom(uint8_t address, size_t len) {
 }
 
 size_t TwoWire::requestFrom(uint8_t address, size_t len, bool stopBit = true) {
-    uint8_t read_buffer[WIRE_BUFFER_SIZE] = { 0 };
+    uint8_t read_buffer[WIRE_BUFFER_SIZE] = {0};
 
     // Fill read_buffer[] with I2C read data & capture how many bytes were read
     uint8_t number_of_bytes_received = len;

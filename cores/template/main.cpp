@@ -1,11 +1,11 @@
 #include <Arduino.h>
 
 int main(void) {
-  setup();
+    setup();
 
-  for (;;) {
-    loop();
-  }
+    for (;;) {
+        loop();
+    }
 
-  return 0;
+    return 0;
 }

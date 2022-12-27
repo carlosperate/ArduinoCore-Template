@@ -6,7 +6,7 @@
  * The official default read/write buffer sizes are 32 bytes and Arduino user
  * sketches should perform individual I2C transactions within these bounds.
  * However, this example Wire library has been configured so that larger
- * buffers can be created by modifying the WIRE_BUFFER_SIZE definition. 
+ * buffers can be created by modifying the WIRE_BUFFER_SIZE definition.
  *
  * Example sketch as an I2C controller:
  *
@@ -272,7 +272,7 @@ class TwoWire : public HardwareI2C {
     void (*onRequestHandler)(void);
     // Receive and transmit buffers
     RingBufferN<WIRE_BUFFER_SIZE> rx_buffer;
-    uint8_t tx_buffer[WIRE_BUFFER_SIZE] = { 0 };
+    uint8_t tx_buffer[WIRE_BUFFER_SIZE] = {0};
     uint8_t tx_buffer_i = 0;
 };
 

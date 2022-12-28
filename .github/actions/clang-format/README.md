@@ -20,14 +20,14 @@ jobs:
   style-checker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Run local action clang-format
       uses: ./.github/actions/clang-format
 
   style-checker-args:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v3
     - name: Run local action clang-format
       uses: ./.github/actions/clang-format
       with:
@@ -44,13 +44,8 @@ https://github.com/Sarcasm/run-clang-format
 A wrapper script around clang-format, suitable for linting multiple files and
 to use for continuous integration.
 
-This script has come from https://github.com/Sarcasm/run-clang-format.
-
-This copy is from commit `de6e8ca07d171a7f378d379ff252a00f2905e81d`.
-
-The script has been updated to also take a `--style` flag to be able to select
-the clang-format coding style. The diff with the code change can be found in
-the `run-clang-format.diff` file.
+This script comes from https://github.com/Sarcasm/run-clang-format
+commit `39081c9c42768ab5e8321127a7494ad1647c6a2f`.
 
 ### `run-clang-format.py` license
 

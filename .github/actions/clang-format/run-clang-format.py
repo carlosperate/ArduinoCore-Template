@@ -130,11 +130,18 @@ def run_clang_format_diff(args, file):
             original = f.readlines()
     except IOError as exc:
         raise DiffError(str(exc))
-    invocation = [
-        args.clang_format_executable,
-        '-style={}'.format(args.style),
-        file
-    ]
+    
+    if args.in_place:
+        invocation = [args.clang_format_executable, '-i', file]
+    else:
+        invocation = [args.clang_format_executable, file]
+
+    if args.style:
+        invocation.extend(['--style', args.style])
+
+    if args.dry_run:
+        print(" ".join(invocation))
+        return [], []
 
     # Use of utf-8 to decode the process output.
     #
@@ -190,6 +197,8 @@ def run_clang_format_diff(args, file):
             ),
             errs,
         )
+    if args.in_place:
+        return [], errs
     return make_diff(file, original, outs), errs
 
 
@@ -256,6 +265,16 @@ def main():
         '--recursive',
         action='store_true',
         help='run recursively over directories')
+    parser.add_argument(
+        '-d',
+        '--dry-run',
+        action='store_true',
+        help='just print the list of files')
+    parser.add_argument(
+        '-i',
+        '--in-place',
+        action='store_true',
+        help='format file instead of printing differences')
     parser.add_argument('files', metavar='file', nargs='+')
     parser.add_argument(
         '-q',
@@ -284,8 +303,7 @@ def main():
         ' from recursive search')
     parser.add_argument(
         '--style',
-        help='select the coding style',
-        default='Google')
+        help='formatting style to apply (LLVM, Google, Chromium, Mozilla, WebKit)')
 
     args = parser.parse_args()
 
@@ -353,6 +371,7 @@ def main():
         pool = multiprocessing.Pool(njobs)
         it = pool.imap_unordered(
             partial(run_clang_format_diff_wrapper, args), files)
+        pool.close()
     while True:
         try:
             outs, errs = next(it)
@@ -380,6 +399,8 @@ def main():
                 print_diff(outs, use_color=colored_stdout)
             if retcode == ExitStatus.SUCCESS:
                 retcode = ExitStatus.DIFF
+    if pool:
+        pool.join()
     return retcode
 
 

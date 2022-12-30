@@ -1,7 +1,7 @@
 {
   "packages": [
     {
-      "name": "ArduinoCoreTemplate",
+      "name": "vendorname",
       "maintainer": "Your Name",
       "websiteURL": "https://carlosperate.github.io/ArduinoCore-Template",
       "email": "your@email.com",
@@ -24,7 +24,7 @@
           ],
           "toolsDependencies": [
             {
-              "packager": "ArduinoCoreTemplate",
+              "packager": "vendorname",
               "name": "custom-tool",
               "version": "1.0.0"
             },

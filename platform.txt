@@ -14,10 +14,51 @@
 # {build.project_name}      - The project name
 # {build.arch}              - The MCU architecture (avr, sam, etc...)
 
-
+################
+# General Info #
+################
 name=Arduino Core Template Boards
 version=0.0.1
 
+#######################################
+# Extra flags that can be overwritten #
+#######################################
+# Left blnk here as it can be overwritten in boards.txt
+build.extra_flags=
 
-compiler.path={build.compiler_path}
+# Left blank here as these can be overwritten in a platform.local.txt file
+# https://arduino.github.io/arduino-cli/latest/platform-specification/#platformlocaltxt
+compiler.c.extra_flags=
+compiler.cpp.extra_flags=
+compiler.S.extra_flags=
+
+##########################
+# Compiler configuration #
+##########################
+# These entries configure how to invoke the compiler for each type of file (C++, C, ASM, etc)
+# These values shown here are for the Arm GCC compiler as installed via package_index.json,
+# if you add a different compiler or toolchaing this will need to be updated
+compiler.path={runtime.tools.arm-none-eabi-gcc-7-2017q4.path}/bin/
+compiler.cpp.cmd=arm-none-eabi-g++
 compiler.c.cmd=arm-none-eabi-gcc
+compiler.S.cmd=arm-none-eabi-gcc
+compiler.c.elf.cmd=arm-none-eabi-gcc
+compiler.objcopy.cmd=arm-none-eabi-objcopy
+compiler.ar.cmd=arm-none-eabi-ar
+
+# The user can set up different compiler warning levels in the Arduino IDE/CLI
+# The values shown here are valid for GCC based compilers
+compiler.warning_flags=-w
+compiler.warning_flags.none=-w
+compiler.warning_flags.default=
+compiler.warning_flags.more=-Wall
+compiler.warning_flags.all=-Wall -Wextra
+
+# The following entries specifytThe compiler flags for each kind of file to be compiled
+# The values included here are needed independently of toolchain, but you'll have to
+# add more relevant to the compiler and MCU for your Arduino Core
+compiler.cpp.flags=-c {compiler.warning_flags}
+compiler.c.flags=-c {compiler.warning_flags}
+compiler.S.flags=
+compiler.c.elf.flags=
+compiler.ar.flags=

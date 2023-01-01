@@ -63,25 +63,39 @@ what is already on here as a base, and go from there.
 
 ### Install for development
 
-These are the development instructions:
+For development these are the instructions to install this Arduino Core from
+the GitHub repository:
+
 1. Locate the Arduino `SKETCHBOOK` directory, which depends on your Operating
   System:
     - Windows: `%USERPROFILE%\Documents\Arduino`
     - macOS: `~/Documents/Arduino`
     - Linux: `~/Arduino`
 2. Clone this repository in the following `SKETCHBOOK` subdirectory:
-  ```
-  git clone https://github.com/carlosperate/ArduinoCore-Template.git <SKETCHBOOK>/hardware/vendorname/template/
-  ```
-3. Open (or restart)  the Arduino IDE
-4. The "Arduino Core Template Boards" option should now appear in the
+    ```
+    git clone https://github.com/carlosperate/ArduinoCore-Template.git <SKETCHBOOK>/hardware/vendorname/template/
+    ```
+3. The ArduinoCore-API sources have to be added to the Arduino Core. There are
+  two options for this step:
+    1. In a different directory, clone the repo ArduinoCore-API repo and
+      create a symlink to into the `cores/api` directory inside 
+      ArduinoCore-Template project:
+        ```
+        git clone https://github.com/arduino/ArduinoCore-API.git
+        ln -s <ArduinoCore-API-PATH>/api <SKETCHBOOK>/hardware/vendorname/template/cores/template/api/
+        ```
+    2. Or simply copy the contents of the `api` folder from
+      [ArduinoCore-API](https://github.com/arduino/ArduinoCore-API) into the
+      `<SKETCHBOOK>/hardware/vendorname/template/cores/template/api/` directory.
+4. Open (or restart)  the Arduino IDE
+5. The "Arduino Core Template Boards" option should now appear in the
   `tools/board` menu.
-
 
 ### Install as a user
 
 As this is just a template, it is not intended to be used directly by users.
-However, for your own release of an Arduino Core, these would an example
+However, for your own release of an Arduino Core (based on this template,
+created from scratch, or from a different Core), these would an example
 of the user instructions:
 
 - Download, install, and start the Arduino IDE
@@ -92,6 +106,12 @@ of the user instructions:
 - Find the "Arduino Core Template" core and click its "Install" button
 - Done! 🎉
   You can now select the "Arduino Core Template" from the `tools/board` menu.
+
+
+## ArduinoCore-API library
+
+WIP - Include info about the API repo and why it is not included here.
+
 
 ## Arduino IDE minimum version
 

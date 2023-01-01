@@ -16,6 +16,15 @@ Arduino IDE settings > "Additional Boards Manager URLS" field.
 
 ## Populating the data
 
+The Arduino CLI documentation contains all the information about how to
+configure the package_index.json file:
+https://arduino.github.io/arduino-cli/latest/package_index_json-specification/
+
+We've tried to keep the documentation in this repository accurate, but
+there might be errors, or bad assumptions.
+If there are any conflicts between the info here and in the official
+docs, always follow official docs instead.
+
 - package_index.json file name:
     - The file name format for this file is
       `package_YOURNAME_PACKAGENAME_index.json`.

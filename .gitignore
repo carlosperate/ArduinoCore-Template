@@ -4,6 +4,8 @@
 # Custom Tool
 /custom-tool/BUILD/*
 /custom-tool/zip/*
+# ArduinoCore-API copy or symlink
+/cores/template/api
 
 ###########
 # Arduino #

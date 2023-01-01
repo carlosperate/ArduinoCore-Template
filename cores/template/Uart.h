@@ -92,4 +92,4 @@ class Uart : public HardwareSerial {
 }  // namespace arduino
 
 // Declare user accessible Serial instance
-extern arduino::UART Serial;
+extern arduino::Uart Serial;

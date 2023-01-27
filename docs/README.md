@@ -1,8 +1,8 @@
 # package_index.json
 
-This file has to be hosted online to be able to add this Arduino Core to the
-Arduino IDE. It contains metadata about the project and download URL for the
-source code and tools required to use the Arduino Core.
+The `package_index.json` file has to be hosted online to be able to add the
+Arduino Core to the Arduino IDE. It contains metadata about the project and
+the download URLs for the source code and tools required to install the Core.
 
 More info about this file can be found in the
 [official documentation](https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.6.x-package_index.json-format-specification).
@@ -53,8 +53,8 @@ WIP - Explain how new versions are added to the package_index.json file.
 
 ## Serving the file
 
-The package_xxx_index.json file has to be available online as a valid text or
-JSON content type URL, so that users can add it to the Arduino IDE.
+The `package_xxx_index.json` file has to be available online as a valid text
+or JSON content type URL, so that users can add it to the Arduino IDE.
 To do that the file has been included in the docs folder, so that it can be
 statically served via [GitHub Pages](https://pages.github.com/). The option
 should be in the repository settings:
@@ -87,4 +87,4 @@ install them without any additional information.
 The first entry is a "custom tool" created from this repository to show how to
 package and include additional tools into the Arduino Core.
 
-The "custom tool" source code can be found in the `./custom-tool/` folder.
+The "custom tool" source code can be found in the `custom-tool/` folder.

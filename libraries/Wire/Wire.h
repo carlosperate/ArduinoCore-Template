@@ -81,11 +81,13 @@ class TwoWire : public HardwareI2C {
     /**
      * Constructor for this I2C class.
      *
-     * Don't initialise the I2C hardware here, it should be done in begin().
+     * Don't initialise the I2C hardware here, that should be done in begin(),
+     * the constructor can be used to prepare the instance before using it.
      *
      * The main "Wire" instance accessed by the users is declared in this
-     * header file and instantiated in Wire.cpp. So, there is no "public"
-     * constructor signature, and can be adapted to the Arduino core needs.
+     * header file and instantiated in Wire.cpp. So, the user is not expected
+     * to use the class constructor, its signature is not standarised, and it
+     * can be adapted to requirements of your Arduino core.
      */
     TwoWire();
 
@@ -130,12 +132,19 @@ class TwoWire : public HardwareI2C {
      * To be followed by calls to the write() methods and finished with
      * a called with the endTransmission() method.
      *
+     * This method is not used in peripheral mode.
+     *
      * @param address 7-bit address of the I2C peripheral.
      */
     void beginTransmission(uint8_t address);
 
     /**
      * Send the I2C controller transmission started by beginTransmission().
+     *
+     * In controller mode the calls to the write() methods only queue the data
+     * to be sent, and a call to this method sends all the queued data.
+     *
+     * This method is not used in peripheral mode.
      *
      * @param stopBit True sends the a stop bit at the end of the transmission.
      *                False sends a repeated start bit.
@@ -158,8 +167,8 @@ class TwoWire : public HardwareI2C {
      * has to be followed by a call to endTransmission().
      *
      * In peripheral mode, the beginTransmission() and endTransmission()
-     * methods are not used, and it directly buffers the data to be sent to
-     * as request from the controller.
+     * methods are not used, and it directly buffers the data to be sent
+     * when requested from the controller.
      *
      * @param value A single byte to write.
      *

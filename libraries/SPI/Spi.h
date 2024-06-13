@@ -15,7 +15,7 @@
 
 #include "api/HardwareSPI.h"
 
-// Inidcates SPI.notUsingInterrupt() is available
+// Indicates SPI.notUsingInterrupt() is available
 #define SPI_HAS_NOTUSINGINTERRUPT 1
 
 namespace arduino {
@@ -77,7 +77,7 @@ class SpiClass : public HardwareSPI {
      * assert the pin after calling this function.
      *
      * @param settings An SPISettings instance configuring the bus clock, bit
-     *                 order and SPI mode.
+     *                 order, and SPI mode.
      */
     void beginTransaction(SPISettings settings);
 
@@ -93,15 +93,35 @@ class SpiClass : public HardwareSPI {
     void endTransaction(void);
 
     /**
-     * Send data to the SPI peripheral.
+     * Send data to the SPI peripheral and read data back.
      *
-     * @param data The data to send via SPI.
+     * @param data A single byte to send.
      *
-     * @param buf A byte array to send via SPI.
-     * @param count The size of the array.
+     * @return A byte read back.
      */
     uint8_t transfer(uint8_t data);
+
+    /**
+     * Send data to the SPI peripheral and read data back.
+     *
+     * The byte order will depend on the default SPISettings or the
+     * configuration set with beginTransaction(SPISettings).
+     *
+     * @param data Two bytes to send.
+     *
+     * @return Two bytes read back.
+     */
     uint16_t transfer16(uint16_t data);
+
+    /**
+     * Send data to the SPI peripheral and read data back.
+     *
+     * The byte order will depend on the default SPISettings or the
+     * configuration set with beginTransaction(SPISettings).
+     *
+     * @param buf A byte array to send via SPI.
+     * @param count The size of the array in bytes.
+     */
     void transfer(void *buf, size_t count);
 
     /**

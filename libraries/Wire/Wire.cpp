@@ -1,6 +1,6 @@
 #include "Wire.h"
 
-namespace arduino {
+using namespace arduino;
 
 TwoWire::TwoWire() {}
 
@@ -11,9 +11,9 @@ void TwoWire::begin() {
 void TwoWire::begin(uint8_t address) {
     peripheral_address = address;
     if (peripheral_address == 0) {
-        // Configure I2C as a controller.
+        // Configure I2C as a controller here.
     } else {
-        // Configure I2C as a peripheral.
+        // Configure I2C as a peripheral here.
     }
 }
 
@@ -26,10 +26,11 @@ size_t TwoWire::requestFrom(uint8_t address, size_t len) {
 size_t TwoWire::requestFrom(uint8_t address, size_t len, bool stopBit = true) {
     uint8_t read_buffer[WIRE_BUFFER_SIZE] = {0};
 
-    // Fill read_buffer[] with I2C read data & capture how many bytes were read
+    // TODO: Fill read_buffer[] with I2C read data here, and capture into
+    // number_of_bytes_received how many bytes were read in total
     uint8_t number_of_bytes_received = len;
 
-    // Move the data to the RX ring buffer
+    // Move the data from read_buffer into the RX ring buffer
     rx_buffer.clear();
     for (int i = 0; i < number_of_bytes_received; i++) {
         rx_buffer.store_char(read_buffer[i]);
@@ -101,6 +102,4 @@ bool TwoWire::getWireTimeoutFlag(void) {
     return timeout_flag;
 }
 
-}  // namespace arduino
-
-arduino::TwoWire Wire;
+TwoWire Wire;

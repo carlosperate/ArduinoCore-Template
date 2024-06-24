@@ -113,6 +113,13 @@ of the user instructions:
 WIP - Include info about the API repo and why it is not included here.
 
 
+## Missing features
+
+The list itself is not yet updated, but will soon contain all items still left
+to implement.
+
+- Variants
+
 ## Arduino IDE minimum version
 
 Some of the features used in this template are not available in earlier version

@@ -16,12 +16,14 @@ void Uart::begin(const unsigned long baudrate, const uint16_t config) {
         case SERIAL_DATA_7: word_size = 7; break;
         case SERIAL_DATA_8: word_size = 8; break;
     }
+    // Implement: Set word size here
 
     uint8_t stop_bits = 1;
     switch (config & SERIAL_STOP_BIT_MASK) {
         case SERIAL_STOP_BIT_1: stop_bits = 1; break;
         case SERIAL_STOP_BIT_2: stop_bits = 2; break;
     }
+    // Implement: Set stop bits here
 
     typedef enum {
         NONE = 0,
@@ -34,6 +36,7 @@ void Uart::begin(const unsigned long baudrate, const uint16_t config) {
         case SERIAL_PARITY_ODD: parity_mode = ODD; break;
         case SERIAL_PARITY_NONE: parity_mode = NONE; break;
     }
+    // Implement: Set parity mode here
 }
 
 void Uart::end(void) {}

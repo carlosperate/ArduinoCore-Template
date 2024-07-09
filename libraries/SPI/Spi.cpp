@@ -21,7 +21,6 @@ uint16_t SpiClass::transfer16(uint16_t data) {
 }
 void SpiClass::transfer(void *buf, size_t count) {}
 
-
 void SpiClass::attachInterrupt() {}
 void SpiClass::detachInterrupt() {}
 

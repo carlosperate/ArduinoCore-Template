@@ -11,9 +11,9 @@ void TwoWire::begin() {
 void TwoWire::begin(uint8_t address) {
     peripheral_address = address;
     if (peripheral_address == 0) {
-        // Configure I2C as a controller here.
+        // Implement: Configure I2C as a controller here.
     } else {
-        // Configure I2C as a peripheral here.
+        // Implement: Configure I2C as a peripheral here.
     }
 }
 
@@ -26,7 +26,7 @@ size_t TwoWire::requestFrom(uint8_t address, size_t len) {
 size_t TwoWire::requestFrom(uint8_t address, size_t len, bool stopBit = true) {
     uint8_t read_buffer[WIRE_BUFFER_SIZE] = {0};
 
-    // TODO: Fill read_buffer[] with I2C read data here, and capture into
+    // Implement: Fill read_buffer[] with I2C read data here, and capture into
     // number_of_bytes_received how many bytes were read in total
     uint8_t number_of_bytes_received = len;
 
@@ -49,7 +49,7 @@ uint8_t TwoWire::endTransmission() {
 }
 
 uint8_t TwoWire::endTransmission(bool stopBit) {
-    // Send the tx_buffer via I2C
+    // Implement: Send the tx_buffer via I2C with or without the stop bit
     return 0;
 }
 
@@ -82,16 +82,19 @@ int TwoWire::read() {
 void TwoWire::setClock(uint32_t freq) {}
 
 void TwoWire::onReceive(void (*handler)(int)) {
+    // Implement: Configure the interrupts to run the onReceive handler
     onReceiveHandler = handler;
 }
 
 void TwoWire::onRequest(void (*handler)(void)) {
+    // Implement: Configure the interrupts to run the onRequest handler
     onRequestHandler = handler;
 }
 
 void TwoWire::setWireTimeout(uint32_t timeout, bool reset_on_timeout) {
     timeout_us = timeout;
     timeout_reset = reset_on_timeout;
+    // Implement: Configure the timer or I2C peripheral to timeout
 }
 
 void TwoWire::clearWireTimeoutFlag(void) {

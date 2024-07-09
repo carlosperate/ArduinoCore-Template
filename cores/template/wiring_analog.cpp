@@ -20,7 +20,9 @@
  * @return A 10-bit value, where the max value 1023 represents the operating
  *         voltage (normally 5V or 3.3V).
  */
-int analogRead(pin_size_t pinNumber) {}
+int analogRead(pin_size_t pinNumber) {
+    return 0;
+}
 
 /**
  * Configure the ADC resolution.

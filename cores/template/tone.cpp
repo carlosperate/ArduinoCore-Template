@@ -5,7 +5,7 @@
 static int current_tone_pin = -1;
 
 /**
- * Generate a square wave of the specified pin & frequency at a 50% duty cycle.
+ * Generate a square wave on the specified pin & frequency at a 50% duty cycle.
  *
  * In the official API, only a single tone can be played at a time.
  * When this functions is called when a tone is already playing on a different
@@ -16,7 +16,7 @@ static int current_tone_pin = -1;
  * before calling tone() on a different pin.
  *
  * This function is non-blocking, so when called with a duration value, the
- * function will return inmediately while the tone plays in the background.
+ * function will return immediately while the tone plays in the background.
  *
  * @param _pin The pin to output the tone.
  * @param frequency The frequency of the tone in Hz.
@@ -47,7 +47,7 @@ void tone(uint8_t _pin, unsigned int frequency, unsigned long duration) {
  * If the given pin is not playing a tone, or no tone is being played,
  * this function will have no effect.
  *
- * @param _pin 
+ * @param _pin The pin to stop playing the tone.
  */
 void noTone(uint8_t _pin) {
     if (_pin != current_tone_pin) return;

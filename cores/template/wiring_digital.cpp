@@ -13,10 +13,9 @@
  * @param pinMode The mode to set the pin.
  */
 void pinMode(pin_size_t pinNumber, PinMode pinMode) {
-    if (!isPinDigital(pinNumber)) {
-        // Throw error
-    }
+    if (!isPinDigital(pinNumber)) return;
 
+    // Implement: Fill in the pin configuration inside this switch statement
     switch (pinMode) {
         case INPUT: break;
         case OUTPUT: break;
@@ -37,9 +36,9 @@ void pinMode(pin_size_t pinNumber, PinMode pinMode) {
  * @param status The state to set the pin, either `HIGH` or `LOW`.
  */
 void digitalWrite(pin_size_t pinNumber, PinStatus status) {
-    if (!isPinDigital(pinNumber)) {
-        // Error
-    }
+    if (!isPinDigital(pinNumber)) return;
+
+    // Implement: Set pin output here
 }
 
 /**
@@ -49,7 +48,7 @@ void digitalWrite(pin_size_t pinNumber, PinStatus status) {
  * @return The digital state of the pin, either `HIGH` or `LOW`.
  */
 PinStatus digitalRead(pin_size_t pinNumber) {
-    if (!isPinDigital(pinNumber)) {
-        // Error
-    }
+    if (!isPinDigital(pinNumber)) return;
+
+    // Implement: Read pin input here
 }

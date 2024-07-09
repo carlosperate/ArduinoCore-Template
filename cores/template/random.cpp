@@ -36,6 +36,6 @@ long random(long min, long max) {
  */
 void randomSeed(unsigned long seed) {
     if (seed) {
-        // Seed your random number generator here
+        // Implement: Seed your random number generator here
     }
 }

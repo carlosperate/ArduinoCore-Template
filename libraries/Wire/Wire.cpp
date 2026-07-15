@@ -24,15 +24,18 @@ size_t TwoWire::requestFrom(uint8_t address, size_t len) {
 }
 
 size_t TwoWire::requestFrom(uint8_t address, size_t len, bool stopBit = true) {
-    uint8_t read_buffer[WIRE_BUFFER_SIZE] = {0};
+    uint8_t read_buffer[I2C_BUFFER_LENGTH] = {0};
+
+    // Reads larger than the RX buffer would drop the extra bytes, so cap early
+    if (len > I2C_BUFFER_LENGTH) len = I2C_BUFFER_LENGTH;
 
     // Implement: Fill read_buffer[] with I2C read data here, and capture into
     // number_of_bytes_received how many bytes were read in total
-    uint8_t number_of_bytes_received = len;
+    size_t number_of_bytes_received = len;
 
     // Move the data from read_buffer into the RX ring buffer
     rx_buffer.clear();
-    for (int i = 0; i < number_of_bytes_received; i++) {
+    for (size_t i = 0; i < number_of_bytes_received; i++) {
         rx_buffer.store_char(read_buffer[i]);
     }
 
@@ -40,8 +43,9 @@ size_t TwoWire::requestFrom(uint8_t address, size_t len, bool stopBit = true) {
 }
 
 void TwoWire::beginTransmission(uint8_t address) {
-    memset(tx_buffer, 0, WIRE_BUFFER_SIZE);
+    memset(tx_buffer, 0, I2C_BUFFER_LENGTH);
     tx_buffer_i = 0;
+    clearWriteError();
 }
 
 uint8_t TwoWire::endTransmission() {
@@ -49,21 +53,30 @@ uint8_t TwoWire::endTransmission() {
 }
 
 uint8_t TwoWire::endTransmission(bool stopBit) {
+    if (getWriteError()) {
+        return getWriteError();
+    }
     // Implement: Send the tx_buffer via I2C with or without the stop bit
     return 0;
 }
 
 size_t TwoWire::write(uint8_t value) {
-    if (tx_buffer_i >= WIRE_BUFFER_SIZE) return 0;
+    if (tx_buffer_i >= I2C_BUFFER_LENGTH) {
+        setWriteError(1 /* data too long */);
+        return 0;
+    }
     tx_buffer[tx_buffer_i++] = value;
     return 1;
 }
 
 size_t TwoWire::write(const uint8_t *buffer, size_t size) {
-    if (tx_buffer_i + size >= WIRE_BUFFER_SIZE) {
-        size = WIRE_BUFFER_SIZE - tx_buffer_i;
+    // Per the Arduino docs, bytes that do not fit in the buffer are dropped
+    if (tx_buffer_i + size > I2C_BUFFER_LENGTH) {
+        setWriteError(1 /* data too long */);
+        size = I2C_BUFFER_LENGTH - tx_buffer_i;
     }
     memcpy(tx_buffer + tx_buffer_i, buffer, size);
+    tx_buffer_i += size;
     return size;
 }
 

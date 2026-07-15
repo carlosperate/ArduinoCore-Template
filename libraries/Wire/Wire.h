@@ -3,10 +3,10 @@
  *
  * There are two operating modes: Controller or Peripheral.
  *
- * The official default read/write buffer sizes are 32 bytes and Arduino user
- * sketches should perform individual I2C transactions within these bounds.
- * However, this example Wire library has been configured so that larger
- * buffers can be created by modifying the WIRE_BUFFER_SIZE definition.
+ * The Arduino documentation only guarantees 32 byte read/write buffers, so
+ * portable Arduino sketches should perform individual I2C transactions within
+ * those bounds. This library defaults to the larger 256 bytes used by the
+ * modern official cores, configurable via the I2C_BUFFER_LENGTH definition.
  *
  * Example sketch as an I2C controller:
  *
@@ -68,10 +68,15 @@
 // Wire.clearWireTimeout() are not always available either
 #define WIRE_HAS_TIMEOUT (1)
 
-// This is not part of the official Arduino Core API, but it might be useful
-// to easily change the tx/rx buffer sizes
-#ifndef WIRE_BUFFER_SIZE
-#define WIRE_BUFFER_SIZE (32)
+// There is no standard Arduino macro for the buffer size; I2C_BUFFER_LENGTH
+// is the most adopted, used by the official Renesas core and ESP32, and
+// checked by libraries (e.g. Adafruit BusIO) to size chunked transfers
+// (AVR uses BUFFER_LENGTH, arduino-pico uses I2C_BUFFER_LENGTH)
+// The Arduino docs only guarantee 32 bytes (the AVR size), so portable
+// sketches chunk transactions to 32; modern official cores (SAMD, mbed,
+// Zephyr) use 256, so prefer that unless the target is RAM constrained
+#ifndef I2C_BUFFER_LENGTH
+#define I2C_BUFFER_LENGTH (256)
 #endif
 
 namespace arduino {
@@ -280,9 +285,10 @@ class TwoWire : public HardwareI2C {
     void (*onReceiveHandler)(int);
     void (*onRequestHandler)(void);
     // Receive and transmit buffers
-    RingBufferN<WIRE_BUFFER_SIZE> rx_buffer;
-    uint8_t tx_buffer[WIRE_BUFFER_SIZE] = {0};
-    uint8_t tx_buffer_i = 0;
+    RingBufferN<I2C_BUFFER_LENGTH> rx_buffer;
+    uint8_t tx_buffer[I2C_BUFFER_LENGTH] = {0};
+    // size_t (not uint8_t) so that I2C_BUFFER_LENGTH can be larger than 255
+    size_t tx_buffer_i = 0;
 };
 
 }  // namespace arduino

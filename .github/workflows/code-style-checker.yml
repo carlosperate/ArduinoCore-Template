@@ -10,8 +10,8 @@ jobs:
   style-checker:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v7
+    - name: Install Clang Format from PyPI
+      run: python3 -m pip install clang-format==15.0.6
     - name: Run local action clang-format
-      uses: ./.github/actions/clang-format
-      with:
-        args: --style=file --recursive .
+      run: python3 .github/workflows/run-clang-format.py --style=file --recursive --extensions=c,h,C,H,cpp,hpp,cc,hh,c++,h++,cxx,hxx,ino .

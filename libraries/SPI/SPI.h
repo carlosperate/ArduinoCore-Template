@@ -33,7 +33,7 @@ class SpiClass : public HardwareSPI {
      * expected to manage those.
      *
      * The main "SPI" instance accessed by the users is declared in this
-     * header file and instantiated in Spi.cpp. So, the user is not expected
+     * header file and instantiated in SPI.cpp. So, the user is not expected
      * to use the class constructor directly and its signature is not
      * standarised. So you can adapt it to requirements of your Arduino core.
      */

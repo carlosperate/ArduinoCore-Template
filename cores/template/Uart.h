@@ -87,6 +87,12 @@ class Uart : public HardwareSerial {
      * @endcode
      */
     operator bool();
+
+  private:
+    // One-byte pushback cache for peek() when the HAL has no native peek:
+    // read() and available() must account for it. Holds 0-255 when a byte has
+    // been peeked, or < 0 when empty. Drop this if your HAL peeks natively.
+    int peeked = -1;
 };
 
 }  // namespace arduino

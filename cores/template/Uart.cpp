@@ -42,14 +42,32 @@ void Uart::begin(const unsigned long baudrate, const uint16_t config) {
 void Uart::end(void) {}
 
 int Uart::available() {
-    return 0;
+    // Implement: query the number of bytes in the hardware RX buffer.
+    int hw_bytes_available = 0;
+    // Add the byte held back by a pending peek() (see peek() below).
+    return hw_bytes_available + (peeked >= 0 ? 1 : 0);
 }
 
 int Uart::peek() {
-    return 0;
+    // Arduino's peek() returns the next byte without consuming it.
+    // In the case this implementation can't do that, pull and stash one byte
+    if (peeked < 0) {
+        // Implement: read one byte from hardware, or < 0 if none.
+        int c = -1;
+        peeked = (c < 0) ? -1 : c;
+    }
+    return peeked;
 }
 
 int Uart::read() {
+    // Return the byte stashed by a previous peek() before touching hardware,
+    // so the peeked byte is not lost or returned out of order.
+    if (peeked >= 0) {
+        int c = peeked;
+        peeked = -1;
+        return c;
+    }
+    // Implement: read one byte from hardware, or < 0 if none.
     return 0;
 }
 
